@@ -13,7 +13,9 @@ RUN pip install gunicorn
 
 RUN apk update && apk add python3-dev \
                         gcc \
-                        libc-dev
+                        libc-dev \
+                        postgresql-dev \
+                        musl-dev
 
 COPY ./chiron_rdcrn /app
 COPY ./chiron/chiron /app/chiron
@@ -22,6 +24,7 @@ COPY ./redcap_importer /app/redcap_importer
 
 COPY ./chiron/requirements.txt .
 RUN pip install -r requirements.txt
+RUN pip install psycopg2
 
 WORKDIR /app
 
