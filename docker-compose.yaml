@@ -1,0 +1,34 @@
+
+version: "3"
+
+services:
+  mongo:
+    image: mongo
+  postgres:
+    image: postgres:alpine
+    environment:
+      - POSTGRES_USER=rdcrn_app
+      - POSTGRES_PASSWORD=G2J8EfJgUQ8SCJar
+      - POSTGRES_DB=rdcrn
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  app:
+    volumes:
+      - static:/static          # map "static" volume to static directory
+    image: jmeinken/chiron-rdcrn
+    depends_on:
+      - mongo
+      - postgres
+  nginx:
+    image: jmeinken/nginx-for-django
+    volumes:
+      - static:/static
+    ports:
+      - "8008:80"
+    depends_on:
+      - app
+
+volumes:
+  static:
+  postgres-data:
+    external: true
