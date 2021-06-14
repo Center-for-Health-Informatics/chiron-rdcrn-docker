@@ -11,7 +11,7 @@ services:
       - POSTGRES_PASSWORD=G2J8EfJgUQ8SCJar
       - POSTGRES_DB=rdcrn
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql/data
   app:
     volumes:
       - static:/static          # map "static" volume to static directory
