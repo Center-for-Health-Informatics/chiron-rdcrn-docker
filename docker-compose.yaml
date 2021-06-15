@@ -4,12 +4,21 @@ version: "3"
 services:
   mongo:
     image: mongo
+  postgres:
+    image: postgres:alpine
+    environment:
+      - POSTGRES_DB=rdcrn
+      - POSTGRES_USER=rdcrn_app
+      - POSTGRES_PASSWORD=G2J8EfJgUQ8SCJar
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
   app:
     volumes:
       - static:/static          # map "static" volume to static directory
     image: jmeinken/chiron-rdcrn
     depends_on:
       - mongo
+      - postgres
   nginx:
     image: jmeinken/nginx-for-django
     volumes:
@@ -21,3 +30,4 @@ services:
 
 volumes:
   static:
+  postgres-data:

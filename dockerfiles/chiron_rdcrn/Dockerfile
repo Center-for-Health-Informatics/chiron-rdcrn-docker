@@ -18,6 +18,7 @@ RUN apk update && apk add python3-dev \
                         musl-dev
 
 COPY ./chiron_rdcrn /app
+COPY ./chiron_rdcrn_docker/dockerfiles/chiron_rdcrn/settings.py /app/project/settings.py
 COPY ./chiron/chiron /app/chiron
 COPY ./user_manager /app/user_manager
 COPY ./redcap_importer /app/redcap_importer
