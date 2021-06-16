@@ -1,8 +1,9 @@
 ## Install Chiron RDCRN Website Using Docker
 
 1. Install Docker and Docker Compose
-    - for Windows and Mac, Docker Desktop includes both Docker and Docker Compose
     - https://docs.docker.com/get-docker/
+    - for Windows and Mac, you can install Docker Desktop which includes both Docker and Docker Compose
+    
     
 2. Clone this repository
    - you must have git installed
