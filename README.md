@@ -8,7 +8,7 @@
    - you must have git installed
    - as an alternative, you could simply copy the file `docker-compose.yaml` to your system
 ```shell
-git clone [repository link]
+git clone https://github.com/Center-for-Health-Informatics/chiron-rdcrn-docker.git
 ```
 
 3. Run the docker-compose file
